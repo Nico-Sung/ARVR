@@ -1,5 +1,0 @@
-/Users/max/Documents/unity/ARVR/.utmp/RelWithDebInfo/91k6uqe5/arm64-v8a/CMakeFiles/edit_cache.dir
-/Users/max/Documents/unity/ARVR/.utmp/RelWithDebInfo/91k6uqe5/arm64-v8a/CMakeFiles/rebuild_cache.dir
-/Users/max/Documents/unity/ARVR/.utmp/RelWithDebInfo/91k6uqe5/arm64-v8a/GameActivity/CMakeFiles/game.dir
-/Users/max/Documents/unity/ARVR/.utmp/RelWithDebInfo/91k6uqe5/arm64-v8a/GameActivity/CMakeFiles/edit_cache.dir
-/Users/max/Documents/unity/ARVR/.utmp/RelWithDebInfo/91k6uqe5/arm64-v8a/GameActivity/CMakeFiles/rebuild_cache.dir

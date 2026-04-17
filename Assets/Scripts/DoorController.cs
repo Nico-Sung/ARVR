@@ -7,8 +7,13 @@ public class DoorController : MonoBehaviour
     [SerializeField] private float openAngle   = 90f;
     [SerializeField] private float rotateSpeed = 2.5f;
 
-    [Header("Input")]
-    [SerializeField] private InputAction action;
+    [Header("VR Input")]
+    // Binding pré-configuré sur la gâchette droite — modifiable dans l'Inspector
+    [SerializeField] private InputAction triggerAction = new InputAction(
+        name: "OpenDoor",
+        type: InputActionType.Button,
+        binding: "<XRController>{LeftHand}/secondaryButton"
+    );
 
     private Quaternion _closedRot;
     private Quaternion _openRot;
@@ -18,27 +23,30 @@ public class DoorController : MonoBehaviour
     {
         _closedRot = transform.localRotation;
         _openRot   = Quaternion.Euler(0, openAngle, 0) * _closedRot;
+
+        triggerAction.performed += _ => ToggleDoor();
     }
 
     void Update()
     {
-        if (action.triggered)
-        {
-            _isOpen = !_isOpen;
-            Debug.Log("Door toggled: " + (_isOpen ? "Open" : "Closed"));
-        }
-
         Quaternion target = _isOpen ? _openRot : _closedRot;
         transform.localRotation = Quaternion.Slerp(transform.localRotation, target, rotateSpeed * Time.deltaTime);
     }
 
-    public void OnEnable()
+    public void ToggleDoor()
     {
-        action.Enable();
+        _isOpen = !_isOpen;
+        Debug.Log("Door toggled: " + (_isOpen ? "Open" : "Closed"));
     }
 
-    public void OnDisable()
+    void OnEnable()
     {
-        action.Disable();
+        triggerAction.Enable();
+    }
+
+    void OnDisable()
+    {
+        triggerAction.performed -= _ => ToggleDoor();
+        triggerAction.Disable();
     }
 }

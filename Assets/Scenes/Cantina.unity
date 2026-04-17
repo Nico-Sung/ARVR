@@ -1012,21 +1012,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DoorController
   openAngle: 90
   rotateSpeed: 2.5
-  action:
-    m_Name: Action
-    m_Type: 0
+  triggerAction:
+    m_Name: OpenDoor
+    m_Type: 1
     m_ExpectedControlType: 
-    m_Id: c30d428a-76a6-4764-91c3-499185c43cd4
+    m_Id: 974a31ff-8f79-4596-a23d-83a5f903c503
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings:
     - m_Name: 
-      m_Id: fa503cda-4916-43e5-8b43-2a6abd104ff7
-      m_Path: <Keyboard>/h
+      m_Id: 78c249ab-9ee6-45b4-85ad-b9b7d64e5c3b
+      m_Path: <XRController>{RightHand}/triggerPressed
       m_Interactions: 
       m_Processors: 
       m_Groups: 
-      m_Action: Action
+      m_Action: OpenDoor
       m_Flags: 0
     m_Flags: 0
 --- !u!1 &78526676
@@ -4846,7 +4846,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0595cbe2c8ba04b4c80467817f23d072, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  resetScene: {fileID: 5667446173830999989, guid: 0be0028c24f2a4c14a96b6aa39055933, type: 3}
+  resetScene: {fileID: 1467712696481551202, guid: 0be0028c24f2a4c14a96b6aa39055933, type: 3}
 --- !u!114 &342231710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4861,6 +4861,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InventoryManager
   prefabs:
   - {fileID: 919132149155446097, guid: 00d7cda449f6d483c85ab1e8087d619a, type: 3}
+  - {fileID: 4845899059395895843, guid: 7d92613c803c447fe972919a7a67dd85, type: 3}
+  - {fileID: 5627232017406377248, guid: 67d80a5dbe17147d69c25a0afa36e726, type: 3}
   slotContainer: {fileID: 880468406}
   inventoryCanvas: {fileID: 1421691794}
   slotSize: 120
@@ -4869,7 +4871,7 @@ MonoBehaviour:
   maxSpawnDistance: 20
   toggleInventoryAction: {fileID: 4116954447336496447, guid: 0be0028c24f2a4c14a96b6aa39055933, type: 3}
   selectAction: {fileID: -2439264783773714294, guid: 0be0028c24f2a4c14a96b6aa39055933, type: 3}
-  spawnAction: {fileID: -2439264783773714294, guid: 0be0028c24f2a4c14a96b6aa39055933, type: 3}
+  spawnAction: {fileID: -975458271487924830, guid: 052faaac586de48259a63d0c4782560b, type: 3}
 --- !u!1 &349773998
 GameObject:
   m_ObjectHideFlags: 0
@@ -24706,7 +24708,7 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 0.06, g: 0.05, b: 0.08, a: 1}
-    - _Color: {r: 0.059999965, g: 0.049999982, b: 0.079999976, a: 1}
+    - _Color: {r: 0.059999965, g: 0.049999982, b: 0.07999996, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
@@ -28742,7 +28744,7 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 0.08, b: 0.1, a: 1}
-    - _Color: {r: 1, g: 0.079999976, b: 0.09999997, a: 1}
+    - _Color: {r: 1, g: 0.07999996, b: 0.09999997, a: 1}
     - _EmissionColor: {r: 10, g: 0.79999995, b: 1, a: 10}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
@@ -32216,7 +32218,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 300971077}
   m_Direction: 0
   m_Value: 1
-  m_Size: 0.99999994
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -32573,7 +32575,7 @@ MonoBehaviour:
   m_Camera: {fileID: 612476962}
   m_OriginBaseGameObject: {fileID: 1826679229}
   m_CameraFloorOffsetObject: {fileID: 1983974487}
-  m_RequestedTrackingOriginMode: 0
+  m_RequestedTrackingOriginMode: 1
   m_CameraYOffset: 1.36144
 --- !u!4 &1826679236
 Transform:
@@ -34639,7 +34641,7 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 0.08, b: 0.1, a: 1}
-    - _Color: {r: 1, g: 0.079999976, b: 0.09999997, a: 1}
+    - _Color: {r: 1, g: 0.07999996, b: 0.09999997, a: 1}
     - _EmissionColor: {r: 10, g: 0.79999995, b: 1, a: 10}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
@@ -35312,7 +35314,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1955590454
 MonoBehaviour:
   m_ObjectHideFlags: 0

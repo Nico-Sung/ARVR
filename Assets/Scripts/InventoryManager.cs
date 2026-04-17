@@ -198,6 +198,17 @@ public class InventoryManager : MonoBehaviour
 
     public void SelectSlot(InventorySlot slot)
     {
+        if (_selectedSlot == slot)
+        {
+            _selectedSlot.SetSelected(false);
+            _selectedSlot = null;
+            if (_ghostPreview != null)
+                Destroy(_ghostPreview);
+            _ghostPreview = null;
+            Debug.Log("[Inventory] Deselected");
+            return;
+        }
+
         if (_selectedSlot != null)
             _selectedSlot.SetSelected(false);
 
@@ -274,6 +285,10 @@ public class InventoryManager : MonoBehaviour
                 Quaternion.FromToRotation(Vector3.up, normal)
             );
             spawned.name = _selectedSlot.prefab.name;
+
+            if (spawned.GetComponent<GrabbableObject>() == null)
+                spawned.AddComponent<GrabbableObject>();
+
             Debug.Log($"[Inventory] Spawned {spawned.name} at {point}");
         }
     }
