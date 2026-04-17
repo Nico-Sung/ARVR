@@ -7,8 +7,11 @@ public class DoorController : MonoBehaviour
     [SerializeField] private float openAngle   = 90f;
     [SerializeField] private float rotateSpeed = 2.5f;
 
+    [Header("Audio")]
+    [SerializeField] private AudioClip openSound;
+    [SerializeField] private AudioClip closeSound;
+
     [Header("VR Input")]
-    // Binding pré-configuré sur la gâchette droite — modifiable dans l'Inspector
     [SerializeField] private InputAction triggerAction = new InputAction(
         name: "OpenDoor",
         type: InputActionType.Button,
@@ -17,14 +20,22 @@ public class DoorController : MonoBehaviour
 
     private Quaternion _closedRot;
     private Quaternion _openRot;
-    private bool _isOpen = false;
+    private bool _isOpen;
+    private AudioSource _audioSource;
 
     void Start()
     {
         _closedRot = transform.localRotation;
         _openRot   = Quaternion.Euler(0, openAngle, 0) * _closedRot;
 
-        triggerAction.performed += _ => ToggleDoor();
+        _audioSource = GetComponent<AudioSource>();
+        if (_audioSource == null)
+            _audioSource = gameObject.AddComponent<AudioSource>();
+
+        _audioSource.spatialBlend = 1f;
+        _audioSource.playOnAwake = false;
+
+        triggerAction.performed += OnTriggerPerformed;
     }
 
     void Update()
@@ -36,8 +47,18 @@ public class DoorController : MonoBehaviour
     public void ToggleDoor()
     {
         _isOpen = !_isOpen;
+
+        AudioClip clip = _isOpen ? openSound : closeSound;
+        if (clip != null)
+        {
+            _audioSource.clip = clip;
+            _audioSource.Play();
+        }
+
         Debug.Log("Door toggled: " + (_isOpen ? "Open" : "Closed"));
     }
+
+    private void OnTriggerPerformed(InputAction.CallbackContext ctx) => ToggleDoor();
 
     void OnEnable()
     {
@@ -46,7 +67,7 @@ public class DoorController : MonoBehaviour
 
     void OnDisable()
     {
-        triggerAction.performed -= _ => ToggleDoor();
+        triggerAction.performed -= OnTriggerPerformed;
         triggerAction.Disable();
     }
 }
