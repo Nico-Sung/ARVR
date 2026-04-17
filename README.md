@@ -23,3 +23,9 @@
 ## Notes
 
 - Ce projet est orienté expérience AR/VR avec interactions immersives.
+
+## Tâche par personne 
+
+- Nicolas : Gestion des sons via scripts, gestion post traitement , choix des assets 3D
+- Maxence : Gestion scripts porte , Scene 3D avec Nicolas , Gestion des commandes des controller vr , build apk
+- Kilian : Gestion scripts inventaire, gestion script spawn object, gestion connexion casque vr
