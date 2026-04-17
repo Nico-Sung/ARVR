@@ -32,6 +32,10 @@ public class InventoryManager : MonoBehaviour
     [SerializeField]
     private float maxSpawnDistance = 20f;
 
+    [Header("Audio")]
+    [SerializeField]
+    private AudioClip placeSound;
+
     [Header("Input")]
     [SerializeField]
     private InputActionReference toggleInventoryAction;
@@ -47,6 +51,7 @@ public class InventoryManager : MonoBehaviour
     private InventorySlot _hoveredSlot;
     private GameObject _ghostPreview;
     private bool _inventoryOpen;
+    private AudioSource _audioSource;
 
     private void OnEnable()
     {
@@ -64,6 +69,13 @@ public class InventoryManager : MonoBehaviour
 
     private void Start()
     {
+        _audioSource = GetComponent<AudioSource>();
+        if (_audioSource == null)
+            _audioSource = gameObject.AddComponent<AudioSource>();
+
+        _audioSource.spatialBlend = 0f;
+        _audioSource.playOnAwake = false;
+
         BuildSlots();
 
         if (inventoryCanvas != null)
@@ -288,6 +300,9 @@ public class InventoryManager : MonoBehaviour
 
             if (spawned.GetComponent<GrabbableObject>() == null)
                 spawned.AddComponent<GrabbableObject>();
+
+            if (placeSound != null)
+                _audioSource.PlayOneShot(placeSound);
 
             Debug.Log($"[Inventory] Spawned {spawned.name} at {point}");
         }

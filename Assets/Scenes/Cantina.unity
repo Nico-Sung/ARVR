@@ -4871,6 +4871,7 @@ MonoBehaviour:
   slotSpacing: 10
   rightInteractor: {fileID: 390931175}
   maxSpawnDistance: 20
+  placeSound: {fileID: 8300000, guid: 8ad5ba487a3594b0f93c34132cccfb6a, type: 3}
   toggleInventoryAction: {fileID: 4116954447336496447, guid: 0be0028c24f2a4c14a96b6aa39055933, type: 3}
   selectAction: {fileID: -2439264783773714294, guid: 0be0028c24f2a4c14a96b6aa39055933, type: 3}
   spawnAction: {fileID: -975458271487924830, guid: 052faaac586de48259a63d0c4782560b, type: 3}
@@ -10374,7 +10375,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -15027,7 +15028,7 @@ MonoBehaviour:
   priority: 0
   blendDistance: 0
   weight: 1
-  sharedProfile: {fileID: 11400000, guid: 10fc4df2da32a41aaa32d77bc913491c, type: 2}
+  sharedProfile: {fileID: 11400000, guid: 49e4172253c024441aa340523c21edfa, type: 2}
 --- !u!4 &832575519
 Transform:
   m_ObjectHideFlags: 0
@@ -24710,7 +24711,7 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 0.06, g: 0.05, b: 0.08, a: 1}
-    - _Color: {r: 0.059999965, g: 0.049999982, b: 0.079999976, a: 1}
+    - _Color: {r: 0.059999965, g: 0.049999982, b: 0.07999996, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
@@ -28746,7 +28747,7 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 0.08, b: 0.1, a: 1}
-    - _Color: {r: 1, g: 0.079999976, b: 0.09999997, a: 1}
+    - _Color: {r: 1, g: 0.07999996, b: 0.09999997, a: 1}
     - _EmissionColor: {r: 10, g: 0.79999995, b: 1, a: 10}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
@@ -32446,6 +32447,7 @@ GameObject:
   - component: {fileID: 1826679232}
   - component: {fileID: 1826679231}
   - component: {fileID: 1826679230}
+  - component: {fileID: 1826679237}
   m_Layer: 2
   m_Name: XR Origin (XR Rig)
   m_TagString: Player
@@ -32596,6 +32598,24 @@ Transform:
   - {fileID: 1677391869}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1826679237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1826679229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75300a062b1cf44e38c6275de3653cfc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FootstepSound
+  footstepClips:
+  - {fileID: 8300000, guid: ea24e485d84b546b8940867f21569924, type: 3}
+  - {fileID: 8300000, guid: 4b00677bc10d84986a703f55e8bdb8b2, type: 3}
+  stepInterval: 0.45
+  minSpeedThreshold: 0.15
+  volume: 1
 --- !u!1 &1840016546
 GameObject:
   m_ObjectHideFlags: 0
@@ -34643,7 +34663,7 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 0.08, b: 0.1, a: 1}
-    - _Color: {r: 1, g: 0.079999976, b: 0.09999997, a: 1}
+    - _Color: {r: 1, g: 0.07999996, b: 0.09999997, a: 1}
     - _EmissionColor: {r: 10, g: 0.79999995, b: 1, a: 10}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
