@@ -127,7 +127,7 @@
                     "name": "Reset",
                     "type": "Button",
                     "id": "f1e2d3c4-b5a6-7890-fedc-ba9876543210",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
